@@ -14,11 +14,11 @@ export interface ContentEntity {
 
 function toEntities(): ContentEntity[] {
     return [
-        ...projects.map(p => ({ id: `project:${p.slug}`, kind: 'project' as const, slug: p.slug, topics: p.topics, published: p.published })),
-        ...articles.map(a => ({ id: `article:${a.slug}`, kind: 'article' as const, slug: a.slug, topics: a.topics, published: a.published })),
-        ...learningNotes.map(l => ({ id: `learning:${l.slug}`, kind: 'learning' as const, slug: l.slug, topics: l.topics, published: l.published })),
-        ...artifacts.map(a => ({ id: `artifact:${a.slug}`, kind: 'artifact' as const, slug: a.slug, topics: a.topics, published: a.published })),
-        ...timelineEvents.map(t => ({ id: `timeline:${t.slug}`, kind: 'timeline' as const, slug: t.slug, topics: t.topics, published: t.published }))
+        ...projects.map(p => ({ id: `project:${p.slug}`, kind: 'project' as const, slug: p.slug, title: p.title, topics: p.topics, published: p.published })),
+        ...articles.map(a => ({ id: `article:${a.slug}`, kind: 'article' as const, slug: a.slug, title: a.title, topics: a.topics, published: a.published })),
+        ...learningNotes.map(l => ({ id: `learning:${l.slug}`, kind: 'learning' as const, slug: l.slug, title: l.title, topics: l.topics, published: l.published })),
+        ...artifacts.map(a => ({ id: `artifact:${a.slug}`, kind: 'artifact' as const, slug: a.slug, title: a.title, topics: a.topics, published: a.published })),
+        ...timelineEvents.map(t => ({ id: `timeline:${t.slug}`, kind: 'timeline' as const, slug: t.slug, title: t.title, topics: t.topics, published: t.published }))
     ]
 }
 

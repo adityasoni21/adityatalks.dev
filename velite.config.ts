@@ -65,6 +65,7 @@ const artifacts = defineCollection({
     pattern: 'content/artifacts/**/*.mdx',
     schema: s.object({
         ...base,
+        slug: s.slug('artifacts'),
         image: s.string(),
         context: s.string(),
         capturedAt: s.isodate()
