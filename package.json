@@ -2,12 +2,6 @@
   "name": "adityatalks-dev",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^13.1.0",
@@ -17,7 +11,6 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "tailwind-merge": "^3.6.0",
-    "velite": "^0.0.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -31,6 +24,26 @@
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "velite": "^0.4.0"
+  },
+  "imports": {
+    "#site/content": "./.velite/index.js"
+  },
+  "scripts": {
+    "predev": "velite build",
+    "dev": "next dev",
+    "prebuild": "velite build && tsx lib/validate-relationships.ts",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.25.12": true,
+    "unrs-resolver@1.12.2": true,
+    "sharp@0.35.3": true,
+    "sharp@0.34.5": true
   }
 }

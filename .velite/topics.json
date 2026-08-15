@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Artificial Intelligence",
+    "slug": "artificial-intelligence",
+    "overview": "How machines learn, reason, and occasionally surprise me -- and what that means for the things I'm trying to build.",
+    "content": "const{jsx:e}=arguments[0];function _createMdxContent(t){const n={p:\"p\",...t.components};return e(n.p,{children:\"I keep coming back to AI because it's the rare field where the theory and the engineering are both moving at once. This hub collects the projects, notes, and half-formed ideas that came out of actually building with it — not just reading about it.\"})}return{default:function(t={}){const{wrapper:n}=t.components||{};return n?e(n,{...t,children:e(_createMdxContent,{...t})}):_createMdxContent(t)}};"
+  },
+  {
+    "title": "Books",
+    "slug": "books",
+    "overview": "What I'm reading, what stuck, and what it connects to in the rest of my work.",
+    "content": "const{jsx:n}=arguments[0];function _createMdxContent(e){const t={p:\"p\",...e.components};return n(t.p,{children:\"A reading list is only interesting if you can see what it fed into. This hub links every book to the projects, notes, and ideas it actually influenced.\"})}return{default:function(e={}){const{wrapper:t}=e.components||{};return t?n(t,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};"
+  },
+  {
+    "title": "Cybersecurity",
+    "slug": "cybersecurity",
+    "overview": "Thinking about systems by trying to break them, then figuring out how to make them harder to break.",
+    "content": "const{jsx:e}=arguments[0];function _createMdxContent(t){const n={p:\"p\",...t.components};return e(n.p,{children:'Security is the topic that keeps every other project honest. Notes and experiments here tend to come out of building something else and then asking, uncomfortably, \"how would I attack this?\"'})}return{default:function(t={}){const{wrapper:n}=t.components||{};return n?e(n,{...t,children:e(_createMdxContent,{...t})}):_createMdxContent(t)}};"
+  },
+  {
+    "title": "Entrepreneurship",
+    "slug": "entrepreneurship",
+    "overview": "Notes from actually building a company, not from reading about people who did.",
+    "content": "const{jsx:t}=arguments[0];function _createMdxContent(e){const n={p:\"p\",...e.components};return t(n.p,{children:\"This is the least theoretical topic on the site. Everything here comes directly out of building Velocity with a co-founder - the decisions, the mistakes, and the things that turned out to matter more than expected.\"})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?t(n,{...e,children:t(_createMdxContent,{...e})}):_createMdxContent(e)}};"
+  },
+  {
+    "title": "Productivity",
+    "slug": "productivity",
+    "overview": "Systems for actually finishing things, tested against a schedule that has very little slack in it.",
+    "content": "const{jsx:e}=arguments[0];function _createMdxContent(n){const t={p:\"p\",...n.components};return e(t.p,{children:\"I don't collect productivity advice for its own sake - everything here has been tested against a real deadline, usually while juggling more than one project at once.\"})}return{default:function(n={}){const{wrapper:t}=n.components||{};return t?e(t,{...n,children:e(_createMdxContent,{...n})}):_createMdxContent(n)}};"
+  },
+  {
+    "title": "Programming",
+    "slug": "programming",
+    "overview": "The craft underneath everything else - languages, systems, architecture, and the decisions that are hard to reverse.",
+    "content": "const{jsx:e}=arguments[0];function _createMdxContent(n){const t={p:\"p\",...n.components};return e(t.p,{children:\"Most of what lives here isn't about a specific language. It's about the decisions that are expensive to undo - data modeling, system boundaries, the stuff you only learn by shipping something and living with the consequences.\"})}return{default:function(n={}){const{wrapper:t}=n.components||{};return t?e(t,{...n,children:e(_createMdxContent,{...n})}):_createMdxContent(n)}};"
+  },
+  {
+    "title": "Quantum Computing",
+    "slug": "quantum-computing",
+    "overview": "Qubits, superposition, and the slow process of learning to think in a different kind of logic.",
+    "content": "const{jsx:e}=arguments[0];function _createMdxContent(t){const n={p:\"p\",...t.components};return e(n.p,{children:\"My interest here started with a simple question: what does randomness actually mean at the hardware level? That question turned into a working password generator built on real quantum hardware, and it hasn't stopped since.\"})}return{default:function(t={}){const{wrapper:n}=t.components||{};return n?e(n,{...t,children:e(_createMdxContent,{...t})}):_createMdxContent(t)}};"
+  }
+]
