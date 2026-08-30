@@ -7,7 +7,7 @@ const base = {
     published: s.isodate(),
     updated: s.isodate().optional(),
     topics: s.array(s.string()).min(1), // validated against the topic registry
-    featuredImage: s.string().optional(),
+    featuredImage: s.image().optional(),
     status: s.enum(['draft', 'published', 'archived']).default('published'),
     content: s.mdx(),  // compiled MDX body
     metadata: s.metadata(),  // auto computes { readingTime, wordCount } 
@@ -66,7 +66,7 @@ const artifacts = defineCollection({
     schema: s.object({
         ...base,
         slug: s.slug('artifacts'),
-        image: s.string(),
+        image: s.image(),
         context: s.string(),
         capturedAt: s.isodate()
     })

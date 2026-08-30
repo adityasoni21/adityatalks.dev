@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "title": "Velocity",
+    "description": "A DSA learning platform, rebuilt properly, with a co-founder.",
+    "published": "2026-06-01T00:00:00.000Z",
+    "topics": [
+      "programming",
+      "entrepreneurship"
+    ],
+    "status": "published",
+    "content": "const{jsx:e}=arguments[0];function _createMdxContent(n){const t={p:\"p\",...n.components};return e(t.p,{children:\"The real story goes here\"})}return{default:function(n={}){const{wrapper:t}=n.components||{};return t?e(t,{...n,children:e(_createMdxContent,{...n})}):_createMdxContent(n)}};",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 5
+    },
+    "slug": "velocity",
+    "oneSentenceStory": "I got tired of DSA platforms that teach pattern-matching instead of understanding, so I'm building one that doesn't.",
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL"
+    ],
+    "projectStatus": "building",
+    "startedFrom": "Why do so many people pass DSA interviews and still can't reason about a new problem?"
+  }
+]
