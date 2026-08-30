@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "title": "Why This Site Is Built on Relationships, Not Folders",
+    "description": "The data model decision that shapes everything else about how this site works.",
+    "published": "2026-06-10T00:00:00.000Z",
+    "topics": [
+      "programming"
+    ],
+    "status": "published",
+    "content": "const{jsx:t}=arguments[0];function _createMdxContent(e){const n={p:\"p\",...e.components};return t(n.p,{children:\"Most personal sites organize content into folders — projects here, blog posts there — and call it a day. I didn't want that, because folders don't capture how ideas actually connect.\"})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?t(n,{...e,children:t(_createMdxContent,{...e})}):_createMdxContent(e)}};",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 29
+    },
+    "slug": "why-relationships-over-folders"
+  }
+]

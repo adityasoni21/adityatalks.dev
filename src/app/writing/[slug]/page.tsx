@@ -1,47 +1,56 @@
-// src/app/projects/[slug]/page.tsx
-import { projects } from '#site/content'
+// src/app/writing/[slug]/page.tsx
+import { articles } from '#site/content'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import { Container } from '@/components/ui/container'
+import { Section } from '@/components/ui/section'
+import { TopicPill } from '@/components/content/topic-pill'
+import { renderMDX } from '../../../../lib/mdx-components'
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }))
+  return articles.map((a) => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
+}: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
-  if (!project) return {}
-
+  const article = articles.find((a) => a.slug === slug)
+  if (!article) return {}
   return {
-    title: project.title,
-    description: project.description,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      title: project.title,
-      description: project.description,
-      images: project.featuredImage ? [project.featuredImage] : undefined,
-      type: 'article',
-    },
+    title: article.title,
+    description: article.description,
+    alternates: { canonical: `/writing/${article.slug}` },
+    openGraph: { title: article.title, description: article.description, type: 'article' },
   }
 }
 
-export default async function ProjectPage({
+export default async function ArticlePage({
   params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
+}: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
-  if (!project) notFound()
+  const article = articles.find((a) => a.slug === slug)
+  if (!article) notFound()
+
+  const body = await renderMDX(article.content)
+  const date = new Date(article.published).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 
   return (
-    <article>
-      <h1>{project.title}</h1>
-      {/* full detail rendering comes in Section 7 */}
-    </article>
+    <Section>
+      <Container width="reading">
+        <h1 className="font-display text-h1 mb-16">{article.title}</h1>
+        <div className="flex items-center gap-16 text-small text-text-secondary mb-24">
+          <span>{date}</span>
+          <span aria-hidden>·</span>
+          <span>{article.metadata.readingTime} min read</span>
+        </div>
+        <div className="flex flex-wrap gap-8 mb-48">
+          {article.topics.map((t) => (
+            <TopicPill key={t} slug={t} label={t} />
+          ))}
+        </div>
+        <article className="prose-content font-body text-body">{body}</article>
+      </Container>
+    </Section>
   )
 }
