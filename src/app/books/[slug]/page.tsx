@@ -1,47 +1,40 @@
-// src/app/projects/[slug]/page.tsx
-import { projects } from '#site/content'
+// src/app/books/[slug]/page.tsx
+import { books } from '#site/content'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import { Container } from '@/components/ui/container'
+import { Section } from '@/components/ui/section'
+import { ContinueExploring } from '@/components/content/continue-exploring'
+import { renderMDX } from '../../../../lib/mdx-components'
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }))
+  return books.map((b) => ({ slug: b.slug }))
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
-  if (!project) return {}
-
-  return {
-    title: project.title,
-    description: project.description,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      title: project.title,
-      description: project.description,
-      images: project.featuredImage ? [project.featuredImage] : undefined,
-      type: 'article',
-    },
-  }
+  const book = books.find((b) => b.slug === slug)
+  if (!book) return {}
+  return { title: `${book.title} — ${book.author}`, description: book.description, alternates: { canonical: `/books/${book.slug}` } }
 }
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
+export default async function BookPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
-  if (!project) notFound()
+  const book = books.find((b) => b.slug === slug)
+  if (!book) notFound()
+
+  const body = await renderMDX(book.content)
 
   return (
-    <article>
-      <h1>{project.title}</h1>
-      {/* full detail rendering comes in Section 7 */}
-    </article>
+    <Section>
+      <Container width="reading">
+        <h1 className="font-display text-h1 mb-8">{book.title}</h1>
+        <p className="font-body text-body-lg text-text-secondary mb-48">
+          {book.author}
+        </p>
+        <article className="prose-content font-body text-body">{body}</article>
+        <ContinueExploring id={`book:${book.slug}`} />
+      </Container>
+    </Section>
   )
 }

@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/container'
 import { Section } from '@/components/ui/section'
 import { TopicPill } from '@/components/content/topic-pill'
 import { renderMDX } from '../../../../lib/mdx-components'
+import { ContinueExploring } from '@/components/content/continue-exploring'
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }))
@@ -50,6 +51,7 @@ export default async function ArticlePage({
           ))}
         </div>
         <article className="prose-content font-body text-body">{body}</article>
+        <ContinueExploring id={`article:${article.slug}`} />
       </Container>
     </Section>
   )

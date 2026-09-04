@@ -2,6 +2,8 @@
 import { projects } from '#site/content'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import { ContinueExploring } from '@/components/content/continue-exploring'
+import { article } from 'framer-motion/client'
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -39,9 +41,9 @@ export default async function ProjectPage({
   if (!project) notFound()
 
   return (
-    <article>
+    <><article>
       <h1>{project.title}</h1>
       {/* full detail rendering comes in Section 7 */}
-    </article>
+    </article><ContinueExploring id={`project:${project.slug}`} /></>
   )
 }
