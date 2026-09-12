@@ -9,7 +9,11 @@ import { LearningCard } from '@/components/cards/learning-card'
 import { renderMDX } from '../../../../lib/mdx-components'
 
 export function generateStaticParams() {
-  return topics.map((t) => ({ slug: t.slug }))
+  return topics
+    .filter((topic): topic is typeof topic & { slug: string } => Boolean(topic.slug))
+    .map((topic) => ({
+      slug: topic.slug,
+    }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

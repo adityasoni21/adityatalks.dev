@@ -2,8 +2,11 @@
 import { projects } from '#site/content'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import { Container } from '@/components/ui/container'
+import { Section } from '@/components/ui/section'
+import { TopicPill } from '@/components/content/topic-pill'
 import { ContinueExploring } from '@/components/content/continue-exploring'
-import { article } from 'framer-motion/client'
+import { renderMDX } from '../../../../lib/mdx-components'
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -11,13 +14,10 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>
-}): Promise<Metadata> {
+}: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const project = projects.find((p) => p.slug === slug)
   if (!project) return {}
-
   return {
     title: project.title,
     description: project.description,
@@ -33,17 +33,43 @@ export async function generateMetadata({
 
 export default async function ProjectPage({
   params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
+}: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const project = projects.find((p) => p.slug === slug)
   if (!project) notFound()
 
+  const body = await renderMDX(project.content)
+
   return (
-    <><article>
-      <h1>{project.title}</h1>
-      {/* full detail rendering comes in Section 7 */}
-    </article><ContinueExploring id={`project:${project.slug}`} /></>
+    <Section>
+      <Container width="reading">
+        <p className="font-mono text-caption text-accent mb-16">
+          {project.startedFrom}
+        </p>
+
+        <h1 className="font-display text-h1 mb-16">{project.title}</h1>
+
+        <p className="font-body text-body-lg text-text-secondary mb-24">
+          {project.oneSentenceStory}
+        </p>
+
+        <div className="flex flex-wrap gap-8 mb-16">
+          {project.topics.map((t) => (
+            <TopicPill key={t} slug={t} label={t} />
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-8 mb-48 text-caption text-text-secondary">
+          {project.stack.map((tech) => (
+            <span key={tech} className="font-mono px-8 py-4 border border-border rounded-(--radius-sm">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <article className="prose-content font-body text-body">{body}</article>
+        <ContinueExploring id={`project:${project.slug}`} />
+      </Container>
+    </Section>
   )
 }
