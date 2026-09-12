@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "title": "Why Being Asked the Right Question Teaches Faster Than Being Given the Right Answer",
+    "description": "The question that ended up shaping how Velocity teaches DSA.",
+    "published": "2026-01-20T00:00:00.000Z",
+    "topics": [
+      "artificial-intelligence",
+      "programming"
+    ],
+    "status": "published",
+    "content": "const{Fragment:e,jsx:t,jsxs:n}=arguments[0];function _createMdxContent(a){const i={p:\"p\",...a.components};return n(e,{children:[t(i.p,{children:\"Every DSA platform I'd used explained the answer, then quizzed me on it. I could always follow the explanation. I could rarely reconstruct it a week later.\"}),\"\\n\",t(i.p,{children:\"The pattern I kept noticing in myself: when someone made me sit with a question I couldn't immediately answer — actually sit with it, not skip ahead — the eventual answer stuck in a way explained answers never did. That observation is the reason Velocity's tutoring engine is built as a Socratic state machine instead of a content-delivery system. It's not a pedagogical trend I adopted; it's a question I couldn't stop noticing in my own learning.\"})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?t(n,{...e,children:t(_createMdxContent,{...e})}):_createMdxContent(e)}};",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 103
+    },
+    "slug": "why-socratic-beats-explaining",
+    "hiddenQuestion": "Why does being asked the right question teach me faster than being given the right answer?"
+  }
+]

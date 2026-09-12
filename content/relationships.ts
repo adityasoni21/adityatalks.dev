@@ -3,5 +3,6 @@
 // id format is `${kind}: ${slug}`  - kind matches lib/graph.ts's ContentKind
 
 export const edges: Array<[string, string, string?]> = [
-    ['project:velocity', 'article:why-relationships-over-folders', 'documents']
+    ['project:velocity', 'article:why-relationships-over-folders', 'documents'],
+    ['idea:why-socratic-beats-explaining', 'project:velocity', 'led-to']
 ]

@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "title": "GATE CS Prep",
+    "description": "Starting GATE CS preparation from scratch, aiming at MS-by-Research programs rather than a straight job-market GATE score.",
+    "published": "2026-08-01T00:00:00.000Z",
+    "topics": [
+      "programming"
+    ],
+    "status": "published",
+    "content": "const{jsx:t}=arguments[0];function _createMdxContent(n){const e={p:\"p\",...n.components};return t(e.p,{children:\"Starting this properly, not casually — GATE CS in February 2027, with IISc and IIT Bombay/Madras MS-by-Research programs as the actual target, not just a score to clear.\"})}return{default:function(n={}){const{wrapper:e}=n.components||{};return e?t(e,{...n,children:t(_createMdxContent,{...n})}):_createMdxContent(n)}};",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 29
+    },
+    "slug": "gate-cs-foundations",
+    "currentQuestion": "How much of my existing project-building intuition actually transfers to the theory GATE tests, and how much is a genuinely separate skill I need to build from zero?",
+    "stage": "exploring",
+    "nextMilestone": "Finish a full pass of core CS theory (algorithms, TOC, discrete math) before doing any timed practice sets."
+  }
+]
