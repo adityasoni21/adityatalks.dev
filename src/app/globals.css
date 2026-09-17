@@ -78,3 +78,81 @@
     font-family: var(--font-mono);
   }
 }
+
+/* Prose content — styles for rendered MDX bodies (was referenced but never defined) */
+.prose-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.prose-content h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  margin-top: 48px;
+}
+.prose-content h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  margin-top: 32px;
+}
+.prose-content a {
+  color: var(--color-accent);
+  text-underline-offset: 4px;
+}
+.prose-content a:hover {
+  text-decoration: underline;
+}
+.prose-content ul,
+.prose-content ol {
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prose-content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-surface-elevated);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.prose-content pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-code);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  overflow-x: auto;
+}
+.prose-content pre code {
+  background: none;
+  padding: 0;
+}
+.prose-content blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 16px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.prose-content img {
+  border-radius: var(--radius-md);
+}
+
+/* Accessibility — visible focus states everywhere, per Design Spec */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Accessibility — global reduced-motion guardrail. Covers every hover:-translate-y
+   CSS transition across every card component in one place, rather than annotating
+   each component individually with motion-reduce: variants. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
