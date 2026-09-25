@@ -109,7 +109,7 @@ function LatestWriting() {
               description={a.description}
               readingTime={a.metadata.readingTime}
               published={a.published}
-              primaryTopic={a.topics[0]}
+              primaryTopic={a.topics[0]!}
             />
           ))}
         </div>

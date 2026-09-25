@@ -79,7 +79,7 @@ const books = defineCollection({
         ...base,
         slug: s.slug('books'),
         author: s.string(),
-        readStatus: s.enum(['reading', 'finished', 'waitlist']),
+        readStatus: s.enum(['reading', 'finished', 'wishlist']),
         rating: s.number().min(1).max(5).optional()
     })
 })
