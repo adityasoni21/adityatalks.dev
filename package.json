@@ -46,5 +46,8 @@
     "unrs-resolver@1.12.2": true,
     "sharp@0.35.3": true,
     "sharp@0.34.5": true
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
