@@ -3,10 +3,26 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { edges } from '../content/relationships'
 
-function loadCollection(name: string): any[] {
+type ContentItem = {
+  slug: string
+  title: string
+  topics?: string[]
+}
+
+function loadCollection(name: string): ContentItem[] {
   const path = join(process.cwd(), '.velite', `${name}.json`)
   try {
-    return JSON.parse(readFileSync(path, 'utf-8'))
+    const parsed: unknown = JSON.parse(readFileSync(path, 'utf-8'))
+    if (!Array.isArray(parsed)) return []
+    return parsed.filter(
+      (item): item is ContentItem =>
+        typeof item === 'object' &&
+        item !== null &&
+        'slug' in item &&
+        typeof item.slug === 'string' &&
+        'title' in item &&
+        typeof item.title === 'string',
+    )
   } catch {
     return []
   }

@@ -23,7 +23,7 @@ export function ProjectCard({
     projectStatus: 'shipped' | 'paused' | 'building'
 }) {
     return (
-        <div className="rounded-(--radius-md) border border-border bg-surface p-32 md:p-32 sm:p-24 flex flex-col gap-16 hover:-translate-y-0.5 transition-transform duration-(--duration-standard)">
+        <div className="group rounded-(--radius-md) border border-border bg-surface/80 p-32 md:p-32 sm:p-24 flex flex-col gap-16 backdrop-blur-sm hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_18px_60px_rgb(0_0_0/0.2)] transition-all duration-(--duration-standard)">
             <span className="font-mono text-caption text-text-secondary ">
                 {String(number).padStart(2, '0')}
             </span>

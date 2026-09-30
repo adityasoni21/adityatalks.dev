@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { cn } from "../../../lib/utils"
-import { Search, Moon } from "lucide-react"
+import { Menu, Search, X } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
 
 const primaryLinks = [
     { href: '/projects', label: 'Projects'},
@@ -14,6 +15,7 @@ const primaryLinks = [
 
 export function Nav() {
     const [scrolled, setScrolled] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 8)
@@ -24,15 +26,15 @@ export function Nav() {
     return (
         <nav
             className={cn(
-                'sticky top-0 z-50 h-18 flex items-center border-b transition-colors duration-(--duration-standard)',
+                'sticky top-0 z-50 h-18 flex items-center border-b transition-all duration-(--duration-standard)',
                 scrolled
-                    ? 'bg-background/80 backdrop-blur-md border-border'
-                    : 'bg-transparent border-transparent'
+                    ? 'bg-background/75 backdrop-blur-xl border-border shadow-[0_12px_40px_rgb(0_0_0/0.18)]'
+                    : 'bg-background/20 border-transparent'
             )}
         >
             <div className="mx-auto max-w-(--container-content) w-full px-16 flex items-center justify-between">
-                <Link href="/" className="font-display font-bold text-body-lg">
-                    aditya
+                <Link href="/" className="font-display font-bold text-body-lg tracking-[-0.04em]">
+                    aditya<span className="text-accent">.</span>
                 </Link>
 
                 <ul className="hidden md:flex items-center gap-32">
@@ -49,14 +51,38 @@ export function Nav() {
                 </ul>
 
                 <div className="flex items-center gap-16">
-                    <button aria-label="Search" className="p-8 hover:text-accent transition-colors">
+                    <Link href="/search" aria-label="Search" className="p-8 hover:text-accent transition-colors">
                         <Search size={18} />
-                    </button>
-                    <button aria-label="Toggle theme" className="p-8 hover:text-accent transition-colors">
-                        <Moon size={18} />
+                    </Link>
+                    <ThemeToggle />
+                    <button
+                        type="button"
+                        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                        aria-expanded={menuOpen}
+                        className="p-8 md:hidden hover:text-accent transition-colors"
+                        onClick={() => setMenuOpen((open) => !open)}
+                    >
+                        {menuOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
                 </div>
             </div>
+            {menuOpen && (
+                <div className="absolute left-0 right-0 top-full border-b border-border bg-background md:hidden">
+                    <ul className="mx-auto flex max-w-(--container-content) flex-col gap-4 px-16 py-16">
+                        {primaryLinks.map((link) => (
+                            <li key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    className="block py-8 text-body-lg text-text-secondary hover:text-text-primary"
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </nav>
     )
 }

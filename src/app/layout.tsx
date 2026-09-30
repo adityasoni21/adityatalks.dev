@@ -28,5 +28,16 @@ export const metadata: Metadata = {
     default: 'adityatalks.dev',
     template: '%s - adityatalks.dev'
   },
-  description: 'Building products. Exploring ideas. Documenting the journey.'
+  description: 'Building products. Exploring ideas. Documenting the journey.',
+  openGraph: {
+    type: 'website',
+    siteName: 'adityatalks.dev',
+    title: 'adityatalks.dev',
+    description: 'Building products. Exploring ideas. Documenting the journey.',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'adityatalks.dev',
+    description: 'Building products. Exploring ideas. Documenting the journey.',
+  },
 }

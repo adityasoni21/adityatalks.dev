@@ -20,7 +20,8 @@ export function ArticleCard({
   const date = new Date(published).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
 
   return (
-    <div className="relative rounded-(--radius-md) border border-border bg-surface p-32 flex flex-col gap-16 hover:-translate-y-0.5 transition-transform duration-(--duration-standard)">
+    <div className="group relative overflow-hidden rounded-(--radius-md) border border-border bg-surface/80 p-32 flex flex-col gap-16 backdrop-blur-sm hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_18px_60px_rgb(0_0_0/0.2)] transition-all duration-(--duration-standard)">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
       <h3 className="font-display text-h3">
         <Link href={`/writing/${slug}`} className="static after:absolute after:inset-0 after:content-['']">
           {title}

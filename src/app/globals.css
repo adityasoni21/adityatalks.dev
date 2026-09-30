@@ -3,12 +3,15 @@
 @theme {
   /* Color — reconciled values per Section 0.1 */
   --color-background: #0D0F14;
-  --color-surface: #161820;
-  --color-surface-elevated: #1F2430;
+  --color-surface: #151923;
+  --color-surface-elevated: #20283a;
   --color-border: rgb(255 255 255 / 0.08);
   --color-text-primary: #F4F4F2;
   --color-text-secondary: #A7AFBC;
-  --color-accent: #6366F1;
+  --color-accent: #7c83ff;
+  --color-accent-bright: #a7aaff;
+  --color-cyan: #45d9e8;
+  --color-pink: #e879f9;
   --color-success: #22C55E;
   --color-warning: #F59E0B;
   --color-danger: #EF4444;
@@ -64,10 +67,25 @@
 }
 
 @layer base {
+  :root[data-theme='light'] {
+    --color-background: #f7f7f5;
+    --color-surface: #ffffff;
+    --color-surface-elevated: #eceef5;
+    --color-border: rgb(15 23 42 / 0.12);
+    --color-text-primary: #171923;
+    --color-text-secondary: #596273;
+    --color-accent: #4f46e5;
+  }
+
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(circle at 88% 8%, rgb(99 102 241 / 0.13), transparent 28rem),
+      radial-gradient(circle at 5% 55%, rgb(69 217 232 / 0.05), transparent 24rem);
+    background-attachment: fixed;
     color: var(--color-text-primary);
     font-family: var(--font-body);
+    transition: background-color var(--duration-standard), color var(--duration-standard);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -76,6 +94,49 @@
 
   code, pre, kbd {
     font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background: rgb(124 131 255 / 0.35);
+    color: var(--color-text-primary);
+  }
+
+  @keyframes studio-float {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+    50% { transform: translate3d(0, -14px, 0) rotate(2deg); }
+  }
+
+  @keyframes studio-pulse {
+    0%, 100% { opacity: 0.35; transform: scale(0.94); }
+    50% { opacity: 0.9; transform: scale(1); }
+  }
+
+  @keyframes studio-drift {
+    from { transform: translateX(-8%); }
+    to { transform: translateX(8%); }
+  }
+
+  .studio-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+  }
+
+  .studio-glow {
+    animation: studio-pulse 5s ease-in-out infinite;
+  }
+
+  .studio-float {
+    animation: studio-float 7s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .studio-glow,
+    .studio-float {
+      animation: none;
+    }
   }
 }
 

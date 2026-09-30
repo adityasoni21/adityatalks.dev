@@ -10,10 +10,10 @@ export function Container({
     width?: 'content' | 'reading' | 'showcase'
     className?: string
 }) {
-    const widths= {
+    const widths = {
         content: 'max-w-[var(--container-content)]',
-        reading: 'max-w-[var(--container-content)]',
+        reading: 'max-w-[var(--container-reading)]',
         showcase: 'max-w-[var(--container-showcase)]'
     }
-    return <div className={cn('max-auto px-16', widths[width], className)}>{children}</div>
+    return <div className={cn('mx-auto w-full px-16', widths[width], className)}>{children}</div>
 }
