@@ -7,10 +7,12 @@ import { Menu, Search, X } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 
 const primaryLinks = [
-    { href: '/projects', label: 'Projects'},
     { href: '/writing', label: 'Writing' },
+    { href: '/projects', label: 'Projects'},
     { href: '/learning', label: 'Learning' },
-    { href: '/about', label: 'About'}
+    { href: '/ideas', label: 'Ideas' },
+    { href: '/books', label: 'Books' },
+    { href: '/about', label: 'About' }
 ]
 
 export function Nav() {
@@ -33,8 +35,8 @@ export function Nav() {
             )}
         >
             <div className="mx-auto max-w-(--container-content) w-full px-16 flex items-center justify-between">
-                <Link href="/" className="font-display font-bold text-body-lg tracking-[-0.04em]">
-                    aditya<span className="text-accent">.</span>
+                <Link href="/" className="font-body text-h4 tracking-[-0.03em]">
+                    Aditya<span className="text-accent-bright">Talks</span>
                 </Link>
 
                 <ul className="hidden md:flex items-center gap-32">

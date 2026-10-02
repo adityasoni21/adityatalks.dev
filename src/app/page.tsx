@@ -17,10 +17,10 @@ import Link from 'next/link'
 
 function SectionHeader({ title, href, linkLabel }: { title: string; href?: string; linkLabel?: string }) {
   return (
-    <div className="flex items-end justify-between mb-32">
-      <h2 className="font-display text-h2">{title}</h2>
+    <div className="mb-32 flex items-end justify-between gap-24 border-b border-border pb-16">
+      <h2 className="font-body text-h2 tracking-[-0.025em]">{title}</h2>
       {href && linkLabel && (
-        <Button href={href} variant="text">
+        <Button href={href} variant="text" className="shrink-0 text-small text-text-secondary">
           {linkLabel}
         </Button>
       )}
@@ -47,16 +47,16 @@ function CurrentCuriosities() {
   if (curiosities.length === 0) return null
 
   return (
-    <Section size="small">
+    <Section size="small" className="border-b border-border/60">
       <Container>
         <SectionHeader title="Current Curiosities" />
         <div className="flex flex-col gap-24">
-          {curiosities.map((c) => (
-            <Link key={c.href} href={c.href} className="group flex items-start gap-16">
-              <span className="text-caption text-accent uppercase tracking-wide mt-4 shrink-0 w-72">
-                {c.kind}
+          {curiosities.map((c, index) => (
+            <Link key={c.href} href={c.href} className="group grid grid-cols-[auto_1fr] items-start gap-16 border-b border-border/60 pb-24 last:border-0 last:pb-0">
+            <span className="font-mono text-caption text-accent-bright mt-4 shrink-0">
+              {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="font-body text-body-lg group-hover:text-accent transition-colors">
+            <span className="font-body text-h4 transition-colors group-hover:text-accent-bright">
                 {c.question}
               </span>
             </Link>
@@ -77,7 +77,7 @@ function FeaturedProject() {
     <Section size="small">
       <Container>
         <SectionHeader title="Featured Project" href="/projects" linkLabel="See All Projects" />
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <ProjectCard
             number={1}
             slug={featured.slug}
@@ -100,7 +100,7 @@ function LatestWriting() {
     <Section size="small">
       <Container>
         <SectionHeader title="Latest Writing" href="/writing" linkLabel="See All Writing" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-24">
+        <div className="grid grid-cols-1 gap-24 md:grid-cols-3">
           {sorted.map((a) => (
             <ArticleCard
               key={a.slug}
@@ -126,7 +126,7 @@ function Learning() {
     <Section size="small">
       <Container>
         <SectionHeader title="Learning" href="/learning" linkLabel="See All Learning" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
+        <div className="grid grid-cols-1 gap-24 md:grid-cols-2">
           {sorted.map((note) => (
             <LearningCard
               key={note.slug}

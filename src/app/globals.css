@@ -17,7 +17,7 @@
   --color-danger: #EF4444;
 
   /* Font role → physical font (see fonts.ts) */
-  --font-display: var(--font-geist), sans-serif;
+  --font-display: var(--font-newsreader), serif;
   --font-body: var(--font-newsreader), serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 
@@ -122,6 +122,20 @@
       linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: linear-gradient(to bottom, black, transparent 85%);
+  }
+
+  .constellation-shell {
+    isolation: isolate;
+  }
+
+  .constellation-shell::before {
+    content: '';
+    position: absolute;
+    inset: 16%;
+    z-index: -1;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgb(124 131 255 / 0.14), transparent 68%);
+    filter: blur(18px);
   }
 
   .studio-glow {

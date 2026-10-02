@@ -6,7 +6,7 @@ export function Footer() {
         <footer className="border-t border-border py-64 mt-160">
             <Container>
                 <div className="flex flex-col gap-32">
-                    <span className="font-display font-bold">aditya</span>
+                    <span className="font-body text-h4">Aditya<span className="text-accent-bright">Talks</span></span>
 
                     <nav className="flex flex-wrap gap-24 text-small text-text-secondary">
                         <Link href="/now">Now</Link>
@@ -16,7 +16,7 @@ export function Footer() {
                         <Link href="/contact">Contact</Link>
                     </nav>
 
-                    <p className="text-small text-text-secondary">
+                    <p className="font-body text-body text-text-secondary">
                         Currently exploring: <span className="text-text-primary">agentic evaluation systems</span>
                     </p>
 
