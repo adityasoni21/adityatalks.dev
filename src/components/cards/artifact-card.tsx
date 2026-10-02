@@ -16,7 +16,7 @@ export function ArtifactCard({
     const date = new Date(capturedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 
     return (
-        <div className="rounded-(--radius-md) border border-border bg-surface overflow-hidden">
+        <div className="group rounded-(--radius-md) border border-border bg-surface/70 overflow-hidden transition-all duration-(--duration-standard) hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_18px_60px_rgb(0_0_0/0.2)]">
             <div className="relative aspect-video">
                 <Image src={image.src} alt={context} fill className="object-cover" />
             </div>
@@ -24,7 +24,7 @@ export function ArtifactCard({
                 <p className="font-body text-body">{context}</p>
                 <span className="text-caption text-text-secondary">{date}</span>
                 {connectedHref && connectedTitle && (
-                    <a href={connectedHref} className="text-small text-(--text-accent) hover:underline">
+                    <a href={connectedHref} className="text-small text-accent-bright hover:underline">
                         Connected to: {connectedTitle}
                     </a>
                 )}

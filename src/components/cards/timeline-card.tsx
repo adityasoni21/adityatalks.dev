@@ -18,7 +18,7 @@ export function TimelineCard({
             <span className="font-mono text-caption text-text-secondary">
                 {date}
             </span>
-            <h4 className="font-display text-h4">{milestone}</h4>
+            <h4 className="font-body text-h4">{milestone}</h4>
             <p className="font-body text-body text-text-secondary">
                 {description}
             </p>

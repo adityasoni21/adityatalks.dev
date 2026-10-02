@@ -14,5 +14,5 @@ export function Section({
         default: 'py-128',
         large: 'py-160'
     }
-    return <section className={cn(padding[size], className)}>{children}</section>
+    return <section className={cn('relative', padding[size], className)}>{children}</section>
 }

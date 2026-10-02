@@ -25,7 +25,7 @@ export function ThemeToggle() {
     <button
       type="button"
       aria-label={light ? 'Switch to dark theme' : 'Switch to light theme'}
-      className="p-8 hover:text-accent transition-colors"
+      className="rounded-full border border-border p-8 text-text-secondary hover:border-accent hover:text-accent-bright transition-colors"
       onClick={toggleTheme}
     >
       {light ? <Moon size={18} /> : <Sun size={18} />}

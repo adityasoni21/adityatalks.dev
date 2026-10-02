@@ -20,11 +20,11 @@ export function LearningCard({
     stage: 'exploring' | 'active' | 'consolidating'
 }) {
     return (
-        <div className="rounded-(--radius-md) border border-border bg-surface p-32 flex flex-col gap-16">
-            <span className="text-caption text-accent uppercase tracking-wide">
+        <div className="group rounded-(--radius-md) border border-border bg-surface/70 p-32 flex flex-col gap-16 transition-all duration-(--duration-standard) hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_18px_60px_rgb(0_0_0/0.2)]">
+            <span className="font-mono text-caption text-accent-bright uppercase tracking-[0.08em]">
                 {title} . {stageLabel[stage]}
             </span>
-            <p className="font-display text-h4">{currentQuestion}</p>
+            <p className="font-body text-h4">{currentQuestion}</p>
             <p className="font-body text-body text-text-secondary">
                 {description}
             </p>

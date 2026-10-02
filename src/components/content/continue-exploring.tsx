@@ -29,7 +29,7 @@ export function ContinueExploring({ id }: { id: string }) {
 
     return (
         <section className="mt-96 pt-48 border-t border-border">
-            <h2 className="font-display text-h3 mb-32">Continue Exploring</h2>
+            <h2 className="font-body text-h3 mb-32">Continue Exploring</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                 {related.map((item) => {
@@ -38,8 +38,8 @@ export function ContinueExploring({ id }: { id: string }) {
                     const href = meta.hrefPrefix ? `${meta.hrefPrefix}/${item?.slug}` : undefined
 
                     const inner = (
-                        <div className="flex items-start gap-16 p-24 rounded-(--radius-md) border border-border bg-surface h-full">
-                            <Icon size={18} className="text-accent)] mt-4 shrink-0" aria-hidden />
+                        <div className="flex items-start gap-16 p-24 rounded-(--radius-md) border border-border bg-surface/70 h-full transition-colors group-hover:border-accent/50">
+                            <Icon size={18} className="text-accent-bright mt-4 shrink-0" aria-hidden />
                             <div className="flex flex-col gap-4">
                                 <span className="text-caption text-text-secondary uppercase tracking-wide">
                                     {meta.label}
@@ -53,7 +53,7 @@ export function ContinueExploring({ id }: { id: string }) {
                     )
 
                     return href ? (
-                        <Link key={item?.id} href={href} className="hover:-translate-y-0.5 transition-transform duration-(--duration-standard)">
+                        <Link key={item?.id} href={href} className="group hover:-translate-y-0.5 transition-transform duration-(--duration-standard)">
                             {inner}
                         </Link>
                     ) : (
